@@ -195,7 +195,7 @@ p('this is convenient')
 ## Dev Dependencies
 
 - [standard](https://ghub.io/standard): JavaScript Standard Style.
-- [tap-spec](https://ghub.io/tap-spec): Formatted TAP output like Mocha&#39;s spec reporter.
+- [tap-spec](https://ghub.io/tap-spec): Formatted TAP output like Mocha's spec reporter.
 - [tape](https://ghub.io/tape): tap-producing test harness for node and browsers.
 
 ## Contributing
