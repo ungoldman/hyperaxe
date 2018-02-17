@@ -180,6 +180,12 @@ var { p } = require('hyperaxe')
 p('this is convenient')
 ```
 
+## Enchantments
+
+- Summons DOM nodes.
+- +1 vs. virtual DOM nodes.
+- Grants [Haste](http://engl393-dnd5th.wikia.com/wiki/Haste).
+
 ## Dependencies
 
 - [html-tags](https://ghub.io/html-tags): List of standard HTML tags.
