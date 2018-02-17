@@ -1,0 +1,36 @@
+{
+  "name": "hyperaxe",
+  "description": "Enchanted hyperscript weapon.",
+  "version": "1.0.0",
+  "author": "Nate Goldman <ungoldman@gmail.com> (http://ungoldman.com/)",
+  "bugs": {
+    "url": "https://github.com/ungoldman/hyperaxe/issues"
+  },
+  "dependencies": {
+    "html-tags": "^2.0.0",
+    "hyperscript": "^2.0.2",
+    "is-plain-object": "^2.0.4"
+  },
+  "devDependencies": {
+    "standard": "^10.0.3",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0"
+  },
+  "homepage": "https://github.com/ungoldman/hyperaxe#readme",
+  "keywords": [
+    "dom",
+    "factory",
+    "html",
+    "hyperscript",
+    "sugar"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ungoldman/hyperaxe.git"
+  },
+  "scripts": {
+    "test": "standard && tape test.js | tap-spec"
+  }
+}
