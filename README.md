@@ -34,27 +34,14 @@ npm install hyperaxe --save
 
 ## Usage
 
-hyperaxe exports a function that takes a tag name as a string and returns a HTML element factory function.
+hyperaxe accepts a tag name and returns an HTML element factory.
 
 ```js
 var x = require('hyperaxe')
+var div = x('div')
 
-x('div')()
+div()
 // <div></div>
-```
-
-The API, inspired by [`reaxe`](https://github.com/jxnblk/reaxe), is similar to `hyperscript` or `React.createElement`, but a little more flexible.
-
-```js
-x('.hello')(
-  { style: 'color: red' },
-  x('.cool')('kewl'),
-  x('.world')('earth')
-)
-// <div class="hello" style="color: red">
-//   <div class="cool">kewl</div>
-//   <div class="world">earth</div>
-// </div>
 ```
 
 Every valid HTML tag is available as a named export.
@@ -66,10 +53,26 @@ a({ href: '#' }, 'click')
 // <a href="#">click</a>
 
 img({ src: 'cats.gif', alt: 'lolcats' })
-// <img src="cats.gif" />
+// <img src="cats.gif" alt="lolcats" />
 
 video({ src: 'dogs.mp4', autoplay: true })
 // <video src="cats.mp4" autoplay></video>
+```
+
+The API, inspired by [`reaxe`](https://github.com/jxnblk/reaxe), is similar to `hyperscript` or `React.createElement`, but a little more flexible.
+
+```js
+var x = require('hyperaxe')
+
+x('p')(
+  { style: 'color: red' },
+  x('span.hello')('hello'),
+  x('.world')('world')
+)
+// <p style="color: red">
+//   <span class="hello">hello</span>
+//   <div class="world">world</div>
+// </p>
 ```
 
 ## Example
