@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "standard": "^10.0.3",
+    "standard-version": "^4.3.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.8.0"
   },
@@ -32,6 +33,9 @@
   },
   "scripts": {
     "example": "npx budo --open example.js",
+    "postrelease": "git push --follow-tags origin master && npm publish",
+    "prerelease": "git fetch --tags && npm test",
+    "release": "standard-version",
     "test": "standard && tape test.js | tap-spec"
   }
 }
