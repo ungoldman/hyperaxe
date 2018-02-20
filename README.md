@@ -199,6 +199,10 @@ p('this is convenient')
 - [tap-spec](https://ghub.io/tap-spec): Formatted TAP output like Mocha's spec reporter.
 - [tape](https://ghub.io/tape): tap-producing test harness for node and browsers.
 
+## See Also
+
+This library's approach and API are heavily inspired by [reaxe](https://github.com/jxnblk/reaxe).
+
 ## Contributing
 
 Contributors welcome! Please read the [contributing guidelines](CONTRIBUTING.md) before getting started.
