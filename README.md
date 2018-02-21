@@ -136,10 +136,9 @@ function store (state, emitter) {
 hyperaxe(tag)([props], [...children])
 ```
 
-- `props` (object) - HTML attributes
-- `children` (node, string, number, array) - child nodes or primitives (string, number)
-
-Both arguments are optional.
+- `tag` (string) - valid HTML tag name
+- `props` (object) - HTML attributes (optional)
+- `children` (node, string, number, array) - child nodes or primitives (string, number) (optional)
 
 The returned function is [variadic](https://en.wikipedia.org/wiki/Variadic_function), so any number of children are accepted.
 
@@ -190,7 +189,6 @@ p('this is convenient')
 
 - [html-tags](https://ghub.io/html-tags): List of standard HTML tags.
 - [hyperscript](https://ghub.io/hyperscript): Create HyperText with JavaScript, on client or server.
-- [is-plain-object](https://ghub.io/is-plain-object): Returns true if an object was created by the `Object` constructor.
 
 ## Dev Dependencies
 
