@@ -1,11 +1,8 @@
-<h1 align="center">
-  <br>
+<div align="center">
   <img src="./axe.png" alt="HyperAxe" width="200">
-  <br>
-  HyperAxe
-  <br>
-  <br>
-</h1>
+</div>
+
+<h1 align="center">HyperAxe</h1>
 
 <h4 align="center">An enchanted <a href="https://github.com/hyperhype/hyperscript">hyperscript</a> weapon.</h4>
 
