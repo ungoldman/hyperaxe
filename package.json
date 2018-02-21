@@ -8,8 +8,7 @@
   },
   "dependencies": {
     "html-tags": "^2.0.0",
-    "hyperscript": "^2.0.2",
-    "is-plain-object": "^2.0.4"
+    "hyperscript": "^2.0.2"
   },
   "devDependencies": {
     "standard": "^10.0.3",

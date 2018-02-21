@@ -1,4 +1,3 @@
-var isProps = require('is-plain-object')
 var tags = require('html-tags')
 var h = require('hyperscript')
 
@@ -12,7 +11,7 @@ var h = require('hyperscript')
 function createFactory (fn) {
   function factory (tag) {
     return function (props) {
-      return isProps(props)
+      return isObject(props)
         ? fn(tag, props, sliceKids(arguments, 1))
         : fn(tag, null, sliceKids(arguments))
     }
@@ -35,6 +34,12 @@ function sliceKids (args, num) {
   var arr = Array.prototype.slice.call(args, num)
   if (Array.isArray(arr[0])) return arr[0]
   return arr
+}
+
+function isObject (val) {
+  return val != null &&
+    typeof val === 'object' &&
+    Array.isArray(val) === false
 }
 
 module.exports = createFactory(h)
