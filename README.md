@@ -37,10 +37,10 @@ a({ href: '#' }, 'click')
 // <a href="#">click</a>
 
 img({ src: 'cats.gif', alt: 'lolcats' })
-// <img src="cats.gif" alt="lolcats" />
+// <img src="cats.gif" alt="lolcats">
 
 video({ src: 'dogs.mp4', autoplay: true })
-// <video src="dogs.mp4" autoplay></video>
+// <video src="dogs.mp4" autoplay="true"></video>
 ```
 
 Default export accepts a tag and returns an element factory.
