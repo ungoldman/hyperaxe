@@ -13,7 +13,7 @@ function createFactory (fn) {
     return function (props) {
       return isObject(props)
         ? fn(tag, props, sliceKids(arguments, 1))
-        : fn(tag, null, sliceKids(arguments))
+        : fn(tag, sliceKids(arguments))
     }
   }
 
@@ -32,7 +32,6 @@ function createFactory (fn) {
  */
 function sliceKids (args, num) {
   var arr = Array.prototype.slice.call(args, num)
-  if (Array.isArray(arr[0])) return arr[0]
   return arr
 }
 
