@@ -4,6 +4,7 @@ var h = require('hyperscript')
 /**
  * Returns an element factory using the given createElement function.
  * Adapted from `lib/create-x.js` in jxnblk's https://github.com/jxnblk/reaxe.
+ * Only tested with hyperscript. Not guaranteed to work with anything else.
  *
  * @param  {Function} fn - createElement function
  * @return {Function} - factory function with all HTML tag factories attached
@@ -25,10 +26,10 @@ function createFactory (fn) {
 }
 
 /**
- * Returns a flat array from a given set of arguments, optionally slicing off a portion.
+ * Turns arguments into an array, optionally slicing off a portion.
  * @param  {array} args - arguments object (array-like)
  * @param  {number} num - optional integer for Array.slice
- * @return {array} - flat array of children
+ * @return {array} - array of arguments
  */
 function sliceKids (args, num) {
   var arr = Array.prototype.slice.call(args, num)
@@ -42,3 +43,4 @@ function isObject (val) {
 }
 
 module.exports = createFactory(h)
+module.exports.createFactory = createFactory
