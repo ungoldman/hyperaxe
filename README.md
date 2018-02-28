@@ -1,17 +1,25 @@
 <div align="center">
-  <img src="./axe.png" alt="HyperAxe" width="200">
+
+<img src="./axe.png" alt="HyperAxe" width="200">
+
+# HyperAxe
+
+An enchanted [hyperscript](https://github.com/hyperhype/hyperscript) weapon.
+
+[![npm][1]][2]
+[![travis][3]][4]
+[![standard][5]][6]
+[![downloads][7]][2]
+
+[1]: https://img.shields.io/npm/v/hyperaxe.svg?style=flat-square
+[2]: https://www.npmjs.com/package/hyperaxe
+[3]: https://img.shields.io/travis/ungoldman/hyperaxe/master.svg?style=flat-square
+[4]: https://travis-ci.org/ungoldman/hyperaxe
+[5]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
+[6]: http://standardjs.com/
+[7]: https://img.shields.io/npm/dm/hyperaxe.svg?style=flat-square
+
 </div>
-
-<h1 align="center">HyperAxe</h1>
-
-<h4 align="center">An enchanted <a href="https://github.com/hyperhype/hyperscript">hyperscript</a> weapon.</h4>
-
-<p align="center">
-  <a href="https://www.npmjs.com/package/hyperaxe"><img src="https://img.shields.io/npm/v/hyperaxe.svg?style=flat-square" alt="version"></a>
-  <a href="https://travis-ci.org/ungoldman/hyperaxe"><img src="https://img.shields.io/travis/ungoldman/hyperaxe/master.svg?style=flat-square" alt="build"></a>
-  <a href="http://standardjs.com/"><img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square" alt="style"></a>
-  <a href="https://www.npmjs.com/package/hyperaxe"><img src="https://img.shields.io/npm/dm/hyperaxe.svg?style=flat-square" alt="downloads"></a>
-</p>
 
 ```sh
 npm install hyperaxe
