@@ -136,14 +136,16 @@ function store (state, emitter) {
 ### `hyperaxe`
 
 ```js
-hyperaxe(tag)([props], [...children])
+hyperaxe(tag) => ([props], [...children]) => HTMLElement
 ```
 
-- `tag` (string) - valid HTML tag name
-- `props` (object) - HTML attributes (optional)
-- `children` (node, string, number, array) - child nodes or primitives (string, number) (optional)
+- `tag` _string_ - valid HTML tag name or CSS shorthand (required)
+- `props` _object_ - HTML attributes (optional)
+- `children` _node, string, number, array_ - child nodes or primitives (optional)
 
-The returned function is [variadic](https://en.wikipedia.org/wiki/Variadic_function), so any number of children are accepted.
+Returns a function that creates HTML elements.
+
+The factory is [variadic](https://en.wikipedia.org/wiki/Variadic_function), so any number of children are accepted.
 
 ```js
 x('.variadic')(
@@ -165,6 +167,8 @@ var kids = [
 
 x('.arrays')(kids)
 ```
+
+In a browser context, the object returned by the factory is an [`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) object. In a server (node) context, the object returned is an instance of [`html-element`](https://github.com/1N50MN14/html-element). In both contexts, the stringified HTML is accessible via the [`outerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML) attribute.
 
 ### `hyperaxe[tag]`
 
