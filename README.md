@@ -68,24 +68,22 @@ Makes creating custom components easy.
 ```js
 var x = require('hyperaxe')
 
-function nav (...links) {
-  x('nav.site')(
-    links.map(link =>
-      x('a.link')({ href: link.href }, link.text)
-    )
+var siteNav = (...links) => x('nav.site')(
+  links.map(link =>
+    x('a.link')({ href: link.href }, link.text)
   )
-}
+)
 
 x.body(
-  nav(
+  siteNav(
     { href: '#apps', text: 'apps' },
     { href: '#games', text: 'games' }
   )
 )
 // <body>
 //   <nav class="site">
-//     <a class="link" href="#apps">apps</span>
-//     <a class="link" href="#games">games</span>
+//     <a class="link" href="#apps">apps</a>
+//     <a class="link" href="#games">games</a>
 //   </nav>
 // </body>
 ```
