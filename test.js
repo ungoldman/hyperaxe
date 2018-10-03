@@ -117,3 +117,13 @@ test('examples: arrays', t => {
     '<div class="arrays"><p>Once upon a time,</p><p>there was a variadic function,</p><p>that also accepted arrays.</p></div>'
   )
 })
+
+test('getFactory: cached createFactory', t => {
+  t.plan(1)
+
+  var h = require('hyperscript')
+  var y = x.getFactory(h)
+  var z = x.getFactory(h)
+
+  t.ok(y === z)
+})
