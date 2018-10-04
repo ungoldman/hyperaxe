@@ -35,6 +35,6 @@
     "postrelease": "git push --follow-tags origin master && npm publish",
     "prerelease": "git fetch --tags && npm test",
     "release": "standard-version",
-    "test": "standard && tape test.js | tap-spec"
+    "test": "standard && tape test/impl.js | tap-spec"
   }
 }

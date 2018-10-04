@@ -4,7 +4,6 @@ var instances
 /**
  * Returns an element factory using the given createElement function.
  * Adapted from `lib/create-x.js` in jxnblk's https://github.com/jxnblk/reaxe.
- * Only tested with hyperscript. Not guaranteed to work with anything else.
  *
  * @param  {Function} fn - createElement function
  * @return {Function} - factory function with all HTML tag factories attached
