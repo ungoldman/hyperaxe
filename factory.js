@@ -1,5 +1,4 @@
 var tags = require('html-tags')
-var h = require('hyperscript')
 var instances
 
 /**
@@ -65,6 +64,5 @@ function isObject (val) {
     Array.isArray(val) === false
 }
 
-module.exports = createFactory(h)
 module.exports.createFactory = createFactory
 module.exports.getFactory = getFactory
