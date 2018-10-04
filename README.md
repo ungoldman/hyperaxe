@@ -186,6 +186,16 @@ var { p } = require('hyperaxe')
 p('this is convenient')
 ```
 
+### `hyperaxe.createFactory(h)`
+
+Creates a `hyperaxe` element factory for a given hyperscript implementation (`h`). Check `test/impl.js` to see which implementations are currently supported.
+
+If you use another implementation than `hyperscript` proper, you can save a dependency by using `require('hyperaxe/factory')`.
+
+### `hyperaxe.getFactory(h)`
+
+Same as `createFactory`, except it only creates a new factory on the first call and returns a cached version after that.
+
 ## Enchantments
 
 - Summons DOM nodes.
