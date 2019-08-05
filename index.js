@@ -1,4 +1,4 @@
-var {createFactory, getFactory} = require('./factory')
+var { createFactory, getFactory } = require('./factory')
 var h = require('hyperscript')
 
 module.exports = createFactory(h)
