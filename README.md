@@ -186,6 +186,14 @@ var { p } = require('hyperaxe')
 p('this is convenient')
 ```
 
+You can pass raw HTML by setting the `innerHTML` property of an element.
+
+```javascript
+var { div } = require('hyperaxe')
+
+div({ innerHTML: '<p>Raw HTML!' })
+```
+
 ### `hyperaxe.createFactory(h)`
 
 Creates a `hyperaxe` element factory for a given hyperscript implementation (`h`).
