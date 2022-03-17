@@ -26,7 +26,7 @@ npm install hyperaxe
 ```
 
 ```js
-var { body, h1 } = require('hyperaxe')
+const { body, h1 } = require('hyperaxe')
 
 body(
   h1('hello world')
@@ -39,7 +39,7 @@ body(
 Exports all [HTML tags](https://ghub.io/html-tags).
 
 ```js
-var { a, img, video } = require('hyperaxe')
+const { a, img, video } = require('hyperaxe')
 
 a({ href: '#' }, 'click')
 // <a href="#">click</a>
@@ -54,8 +54,8 @@ video({ src: 'dogs.mp4', autoplay: true })
 Default export accepts a tag and returns an element factory.
 
 ```js
-var x = require('hyperaxe')
-var p = x('p')
+const x = require('hyperaxe')
+const p = x('p')
 
 p('over 9000')
 // <p>over 9000</p>
@@ -64,8 +64,8 @@ p('over 9000')
 CSS shorthand works too.
 
 ```js
-var x = require('hyperaxe')
-var horse = x('.horse.with-hands')
+const x = require('hyperaxe')
+const horse = x('.horse.with-hands')
 
 horse('neigh')
 // <div class="horse with-hands">neigh</div>
@@ -74,9 +74,9 @@ horse('neigh')
 Makes creating custom components easy.
 
 ```js
-var x = require('hyperaxe')
+const x = require('hyperaxe')
 
-var siteNav = (...links) => x('nav.site')(
+const siteNav = (...links) => x('nav.site')(
   links.map(link =>
     x('a.link')({ href: link.href }, link.text)
   )
@@ -101,10 +101,10 @@ x.body(
 Here's a counter increment example using [`nanochoo`](https://github.com/heyitsmeuralex/nanochoo):
 
 ```js
-var { body, button, h1 } = require('hyperaxe')
-var nano = require('nanochoo')
+const { body, button, h1 } = require('hyperaxe')
+const nano = require('nanochoo')
 
-var app = nano()
+const app = nano()
 
 app.use(store)
 app.view(view)
@@ -159,7 +159,7 @@ x('.variadic')(
 Arrays of children also work.
 
 ```js
-var kids = [
+const kids = [
   x('p')('Once upon a time,'),
   x('p')('there was a variadic function,'),
   x('p')('that also accepted arrays.')
@@ -181,7 +181,7 @@ Think of it as a kind of [partial application](https://en.wikipedia.org/wiki/Par
 The main motivation for doing this is convenience.
 
 ```js
-var { p } = require('hyperaxe')
+const { p } = require('hyperaxe')
 
 p('this is convenient')
 ```
@@ -189,7 +189,7 @@ p('this is convenient')
 You can pass raw HTML by setting the `innerHTML` property of an element.
 
 ```javascript
-var { div } = require('hyperaxe')
+const { div } = require('hyperaxe')
 
 div({ innerHTML: '<p>Raw HTML!' })
 ```

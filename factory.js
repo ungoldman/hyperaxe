@@ -1,5 +1,5 @@
-var tags = require('html-tags')
-var instances
+const tags = require('html-tags')
+let instances
 
 /**
  * Returns an element factory using the given createElement function.
@@ -37,7 +37,7 @@ function getFactory (fn) {
     instances = new Map()
   }
 
-  var factory = instances.get(fn)
+  let factory = instances.get(fn)
   if (factory) {
     return factory
   }
@@ -54,7 +54,7 @@ function getFactory (fn) {
  * @return {array} - array of arguments
  */
 function sliceKids (args, num) {
-  var arr = Array.prototype.slice.call(args, num)
+  const arr = Array.prototype.slice.call(args, num)
   return arr
 }
 
