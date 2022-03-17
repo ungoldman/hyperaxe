@@ -1,7 +1,7 @@
 {
   "name": "hyperaxe",
   "description": "Enchanted hyperscript weapon.",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "author": "Nate Goldman <ungoldman@gmail.com> (https://ungoldman.com/)",
   "bugs": {
     "url": "https://github.com/ungoldman/hyperaxe/issues"
