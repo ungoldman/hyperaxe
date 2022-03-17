@@ -2,7 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [2.0.0](https://github.com/ungoldman/hyperaxe/compare/v1.3.0...v2.0.0) (2022-03-17)
+<a name="2.0.0">
+# [2.0.0](https://github.com/ungoldman/hyperaxe/compare/v1.3.0...v2.0.0) (2022-03-17)
+
+### Breaking Changes
+- dropped support for all node versions below 12
+  - currently supported versions: node 12, 14, 16
+
+### Misc
+- docs: update badges, rm tap-spec
+- ci: use gh actions
+- rm .travis.yml
+- lint: standard@16
+- deps(dev): standard@16, standard-version@9, tape@5, rm tap-spec
+- add .gitignore
+- chore(deps-dev): bump standard-version from 7.1.0 to 8.0.1 (#12)
+- Add innerHTML documentation and upgrade deps (#10)
 
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/ungoldman/hyperaxe/compare/v1.2.0...v1.3.0) (2018-10-05)
