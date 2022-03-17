@@ -6,18 +6,15 @@
 
 An enchanted [hyperscript](https://github.com/hyperhype/hyperscript) weapon.
 
-[![npm][1]][2]
-[![travis][3]][4]
-[![standard][5]][6]
-[![downloads][7]][2]
+[![npm][npm-image]][npm-url]
+[![build][build-image]][build-url]
+[![downloads][downloads-image]][npm-url]
 
-[1]: https://img.shields.io/npm/v/hyperaxe.svg?style=flat-square
-[2]: https://www.npmjs.com/package/hyperaxe
-[3]: https://img.shields.io/travis/ungoldman/hyperaxe/master.svg?style=flat-square
-[4]: https://travis-ci.org/ungoldman/hyperaxe
-[5]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square
-[6]: http://standardjs.com/
-[7]: https://img.shields.io/npm/dm/hyperaxe.svg?style=flat-square
+[npm-image]: https://img.shields.io/npm/v/hyperaxe.svg
+[npm-url]: https://www.npmjs.com/package/hyperaxe
+[build-image]: https://github.com/ungoldman/hyperaxe/actions/workflows/tests.yml/badge.svg
+[build-url]: https://github.com/ungoldman/hyperaxe/actions/workflows/tests.yml
+[downloads-image]: https://img.shields.io/npm/dm/hyperaxe.svg
 
 </div>
 
@@ -219,7 +216,6 @@ Same as `createFactory`, except it only creates a new factory on the first call 
 
 - [standard](https://ghub.io/standard): JavaScript Standard Style.
 - [standard-version](https://ghub.io/standard-version): Replacement for `npm version` with automatic CHANGELOG generation.
-- [tap-spec](https://ghub.io/tap-spec): Formatted TAP output like Mocha's spec reporter.
 - [tape](https://ghub.io/tape): tap-producing test harness for node and browsers.
 
 ## See Also
