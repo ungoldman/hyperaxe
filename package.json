@@ -11,10 +11,9 @@
     "hyperscript": "^2.0.2"
   },
   "devDependencies": {
-    "standard": "^13.1.0",
-    "standard-version": "^8.0.1",
-    "tap-spec": "^5.0.0",
-    "tape": "^4.11.0"
+    "standard": "^16.0.4",
+    "standard-version": "^9.3.2",
+    "tape": "^5.5.2"
   },
   "homepage": "https://github.com/ungoldman/hyperaxe#readme",
   "keywords": [
@@ -35,6 +34,6 @@
     "postrelease": "git push --follow-tags origin master && npm publish",
     "prerelease": "git fetch --tags && npm test",
     "release": "standard-version",
-    "test": "standard && tape test.js | tap-spec"
+    "test": "standard && tape test.js"
   }
 }
