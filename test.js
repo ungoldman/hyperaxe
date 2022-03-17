@@ -1,6 +1,6 @@
-var x = require('./')
-var test = require('tape')
-var tags = require('html-tags')
+const x = require('./')
+const test = require('tape')
+const tags = require('html-tags')
 
 test('factory function signature', t => {
   t.plan(5)
@@ -8,7 +8,7 @@ test('factory function signature', t => {
   t.equal(typeof x, 'function', 'factory function exists')
   t.equal(typeof x('p'), 'function', 'factory produces function')
 
-  var h = x('p')('hello')
+  const h = x('p')('hello')
 
   t.equal(typeof h, 'object', 'tag function produces object')
   t.equal(h.nodeName, 'p', 'tag object has correct nodeName')
@@ -23,7 +23,7 @@ test('all tags', function (t) {
 })
 
 test('complex nested arrays', function (t) {
-  var h = x.div({ id: 'kidz' }, 'I ', ['am ', ['a ', [x.em('very'), ' ', ['nested ', 'bunch ']]], 'of '], x.strong('kids'), '.')
+  const h = x.div({ id: 'kidz' }, 'I ', ['am ', ['a ', [x.em('very'), ' ', ['nested ', 'bunch ']]], 'of '], x.strong('kids'), '.')
   t.equal(h.outerHTML, '<div id="kidz">I am a <em>very</em> nested bunch of <strong>kids</strong>.</div>', 'the kids are alright')
   t.end()
 })
@@ -31,7 +31,7 @@ test('complex nested arrays', function (t) {
 test('examples: HTML tags', t => {
   t.plan(3)
 
-  var { a, img, video } = x
+  const { a, img, video } = x
 
   t.equal(
     a({ href: '#' }, 'click').outerHTML,
@@ -50,7 +50,7 @@ test('examples: HTML tags', t => {
 test('examples: element factory', t => {
   t.plan(1)
 
-  var p = x('p')
+  const p = x('p')
 
   t.equal(
     p('over 9000').outerHTML,
@@ -61,7 +61,7 @@ test('examples: element factory', t => {
 test('examples: css shorthand', t => {
   t.plan(1)
 
-  var horse = x('.horse.with-hands')
+  const horse = x('.horse.with-hands')
 
   t.equal(
     horse('neigh').outerHTML,
@@ -72,7 +72,7 @@ test('examples: css shorthand', t => {
 test('examples: custom components', t => {
   t.plan(1)
 
-  var siteNav = (...links) => x('nav.site')(
+  const siteNav = (...links) => x('nav.site')(
     links.map(link =>
       x('a.link')({ href: link.href }, link.text)
     )
@@ -106,7 +106,7 @@ test('examples: variadic', t => {
 test('examples: arrays', t => {
   t.plan(1)
 
-  var kids = [
+  const kids = [
     x('p')('Once upon a time,'),
     x('p')('there was a variadic function,'),
     x('p')('that also accepted arrays.')
@@ -121,9 +121,9 @@ test('examples: arrays', t => {
 test('getFactory: cached createFactory', t => {
   t.plan(1)
 
-  var h = require('hyperscript')
-  var y = x.getFactory(h)
-  var z = x.getFactory(h)
+  const h = require('hyperscript')
+  const y = x.getFactory(h)
+  const z = x.getFactory(h)
 
   t.ok(y === z)
 })

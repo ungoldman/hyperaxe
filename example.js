@@ -1,6 +1,6 @@
-var { body, button, h1 } = require('./')
+const { body, button, h1 } = require('./')
 
-var state = { count: 0 }
+const state = { count: 0 }
 
 function view () {
   return body(
