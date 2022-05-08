@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/ungoldman/hyperaxe/compare/v2.0.0...v2.0.1) (2022-05-08)
+
+
+### Bug Fixes
+
+* **engines:** set min node to 12 ([e61d87b](https://github.com/ungoldman/hyperaxe/commit/e61d87bdf0e41c29cd814ffd99739a946578fe99))
+
 <a name="2.0.0">
 # [2.0.0](https://github.com/ungoldman/hyperaxe/compare/v1.3.0...v2.0.0) (2022-03-17)
 
