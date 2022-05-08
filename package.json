@@ -35,7 +35,7 @@
   },
   "scripts": {
     "example": "npx budo --open example.js",
-    "postrelease": "git push --follow-tags origin master && npm publish",
+    "postrelease": "git push --tags && npm publish",
     "prerelease": "git fetch --tags && npm test",
     "release": "standard-version",
     "test": "standard && tape test.js | tap-arc"
