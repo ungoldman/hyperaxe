@@ -13,7 +13,7 @@
   "devDependencies": {
     "standard": "^17.0.0",
     "standard-version": "^9.3.2",
-    "tap-arc": "^0.3.4",
+    "tap-arc": "^0.4.0",
     "tape": "^5.5.2"
   },
   "engines": {
