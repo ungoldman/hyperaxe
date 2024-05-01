@@ -7,7 +7,7 @@
     "url": "https://github.com/ungoldman/hyperaxe/issues"
   },
   "dependencies": {
-    "html-tags": "^3.0.0",
+    "html-tags": "^4.0.0",
     "hyperscript": "^2.0.2"
   },
   "devDependencies": {
