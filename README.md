@@ -23,7 +23,7 @@ npm install hyperaxe
 ```
 
 ```js
-const { body, h1 } = require('hyperaxe')
+import { body, h1 } from 'hyperaxe'
 
 body(
   h1('hello world')
@@ -36,7 +36,7 @@ body(
 Exports all [HTML tags](https://ghub.io/html-tags).
 
 ```js
-const { a, img, video } = require('hyperaxe')
+import { a, img, video } from 'hyperaxe'
 
 a({ href: '#' }, 'click')
 // <a href="#">click</a>
@@ -51,8 +51,8 @@ video({ src: 'dogs.mp4', autoplay: true })
 Default export accepts a tag and returns an element factory.
 
 ```js
-const x = require('hyperaxe')
-const p = x('p')
+import h from 'hyperaxe'
+const p = h('p')
 
 p('over 9000')
 // <p>over 9000</p>
@@ -61,8 +61,8 @@ p('over 9000')
 CSS shorthand works too.
 
 ```js
-const x = require('hyperaxe')
-const horse = x('.horse.with-hands')
+import h from 'hyperaxe'
+const horse = h('.horse.with-hands')
 
 horse('neigh')
 // <div class="horse with-hands">neigh</div>
@@ -71,15 +71,15 @@ horse('neigh')
 Makes creating custom components easy.
 
 ```js
-const x = require('hyperaxe')
+import h, { body } from 'hyperaxe'
 
-const siteNav = (...links) => x('nav.site')(
+const siteNav = (...links) => h('nav.site')(
   links.map(link =>
-    x('a.link')({ href: link.href }, link.text)
+    h('a.link')({ href: link.href }, link.text)
   )
 )
 
-x.body(
+body(
   siteNav(
     { href: '#apps', text: 'apps' },
     { href: '#games', text: 'games' }
@@ -98,8 +98,8 @@ x.body(
 Here's a counter increment example using [`nanochoo`](https://github.com/heyitsmeuralex/nanochoo):
 
 ```js
-const { body, button, h1 } = require('hyperaxe')
-const nano = require('nanochoo')
+import { body, button, h1 } from 'hyperaxe'
+import nano from 'nanochoo'
 
 const app = nano()
 
@@ -145,11 +145,11 @@ Returns a function that creates HTML elements.
 The factory is [variadic](https://en.wikipedia.org/wiki/Variadic_function), so any number of children are accepted.
 
 ```js
-x('.variadic')(
-  x('h1')('hi'),
-  x('h2')('hello'),
-  x('h3')('hey'),
-  x('h4')('howdy')
+h('.variadic')(
+  h('h1')('hi'),
+  h('h2')('hello'),
+  h('h3')('hey'),
+  h('h4')('howdy')
 )
 ```
 
@@ -157,19 +157,19 @@ Arrays of children also work.
 
 ```js
 const kids = [
-  x('p')('Once upon a time,'),
-  x('p')('there was a variadic function,'),
-  x('p')('that also accepted arrays.')
+  h('p')('Once upon a time,'),
+  h('p')('there was a variadic function,'),
+  h('p')('that also accepted arrays.')
 ]
 
-x('.arrays')(kids)
+h('.arrays')(kids)
 ```
 
 In a browser context, the object returned by the factory is an [`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) object. In a server (node) context, the object returned is an instance of [`html-element`](https://github.com/1N50MN14/html-element). In both contexts, the stringified HTML is accessible via the [`outerHTML`](https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML) attribute.
 
-### `hyperaxe[tag]`
+### `hyperaxe` named exports
 
-All [HTML tags](https://ghub.io/html-tags) are attached to `hyperaxe` as keys.
+All [HTML tags](https://ghub.io/html-tags) are available as named exports.
 
 They return the same function as described above, with the `tag` argument prefilled.
 
@@ -178,7 +178,7 @@ Think of it as a kind of [partial application](https://en.wikipedia.org/wiki/Par
 The main motivation for doing this is convenience.
 
 ```js
-const { p } = require('hyperaxe')
+import { p } from 'hyperaxe'
 
 p('this is convenient')
 ```
@@ -186,20 +186,24 @@ p('this is convenient')
 You can pass raw HTML by setting the `innerHTML` property of an element.
 
 ```javascript
-const { div } = require('hyperaxe')
+import { div } from 'hyperaxe'
 
 div({ innerHTML: '<p>Raw HTML!' })
 ```
 
-### `hyperaxe.createFactory(h)`
+### `createFactory(h)`
 
 Creates a `hyperaxe` element factory for a given hyperscript implementation (`h`).
 
-If you use another implementation than `hyperscript` proper, you can exclude that dependency by using `require('hyperaxe/factory')`. For the time being, no other implementations are tested though, so wield at your own peril!
+Available as a named export: `import { createFactory } from 'hyperaxe'`
 
-### `hyperaxe.getFactory(h)`
+If you use another implementation than `hyperscript` proper, you can exclude that dependency by using `import { createFactory } from 'hyperaxe/factory.js'`. For the time being, no other implementations are tested though, so wield at your own peril!
+
+### `getFactory(h)`
 
 Same as `createFactory`, except it only creates a new factory on the first call and returns a cached version after that.
+
+Available as a named export: `import { getFactory } from 'hyperaxe'`
 
 ## Enchantments
 

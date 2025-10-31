@@ -1,4 +1,4 @@
-const { body, button, h1 } = require('./')
+import { body, button, h1 } from './index.js'
 
 const state = { count: 0 }
 

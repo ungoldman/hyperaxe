@@ -1,4 +1,4 @@
-const tags = require('html-tags')
+import tags from 'html-tags'
 let instances
 
 /**
@@ -18,6 +18,8 @@ function createFactory (fn) {
     }
   }
 
+  // Dynamically attach all HTML tag methods to the factory
+  // This is the clean, programmatic part - no manual updates needed here
   tags.forEach(function (tag) {
     factory[tag] = factory(tag)
   })
@@ -64,5 +66,4 @@ function isObject (val) {
     Array.isArray(val) === false
 }
 
-module.exports.createFactory = createFactory
-module.exports.getFactory = getFactory
+export { createFactory, getFactory }

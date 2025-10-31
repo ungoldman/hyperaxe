@@ -2,6 +2,7 @@
   "name": "hyperaxe",
   "description": "Enchanted hyperscript weapon.",
   "version": "2.0.1",
+  "type": "module",
   "author": "Nate Goldman <ungoldman@gmail.com> (https://ungoldman.com/)",
   "bugs": {
     "url": "https://github.com/ungoldman/hyperaxe/issues"
@@ -17,7 +18,7 @@
     "tape": "^5.5.2"
   },
   "engines": {
-    "node": ">=12"
+    "node": ">=22"
   },
   "homepage": "https://github.com/ungoldman/hyperaxe#readme",
   "keywords": [
