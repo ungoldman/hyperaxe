@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file. See [standa
 ## Unreleased
 
 ### Breaking Changes
-- Convert to ESM
+- Convert to Typescript & ESM
 - Require Node v22 and up, drop support for older versions
 
 ## [2.0.1](https://github.com/ungoldman/hyperaxe/compare/v2.0.0...v2.0.1) (2022-05-08)

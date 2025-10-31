@@ -2,20 +2,25 @@
   "name": "hyperaxe",
   "description": "Enchanted hyperscript weapon.",
   "version": "2.0.1",
-  "type": "module",
   "author": "Nate Goldman <ungoldman@gmail.com> (https://ungoldman.com/)",
   "bugs": {
     "url": "https://github.com/ungoldman/hyperaxe/issues"
   },
   "dependencies": {
-    "html-tags": "^3.0.0",
+    "html-tags": "^5.1.0",
     "hyperscript": "^2.0.2"
   },
   "devDependencies": {
-    "standard": "^17.0.0",
-    "standard-version": "^9.3.2",
-    "tap-arc": "^1.0.2",
-    "tape": "^5.5.2"
+    "@types/node": "^24.9.2",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2",
+    "tsx": "^4.6.0",
+    "typescript": "^5.6.0",
+    "typescript-eslint": "^8.46.2"
   },
   "engines": {
     "node": ">=22"
@@ -29,16 +34,28 @@
     "sugar"
   ],
   "license": "ISC",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ungoldman/hyperaxe.git"
   },
   "scripts": {
-    "example": "npx budo --open example.js",
+    "build": "tsc",
+    "clean": "rm -rf dist",
+    "example": "tsx example.ts",
+    "format": "prettier --write 'src/**/*.ts'",
+    "format:check": "prettier --check 'src/**/*.ts'",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "lint:types": "tsc --noEmit",
     "postrelease": "git push --tags && npm publish",
+    "prebuild": "npm run clean",
+    "prepare": "npm run build",
     "prerelease": "git fetch --tags && npm test",
-    "release": "standard-version",
-    "test": "standard && tape test.js | tap-arc"
-  }
+    "release": "npm version patch && git push --tags && npm publish",
+    "test": "node --test --import=tsx src/**/*.spec.ts",
+    "test:watch": "node --test --watch --import=tsx src/**/*.spec.ts"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts"
 }

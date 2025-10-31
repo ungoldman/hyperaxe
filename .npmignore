@@ -1,3 +1,4 @@
+.github/
+tests/
 axe.png
-example.js
-test.js
+example.ts
