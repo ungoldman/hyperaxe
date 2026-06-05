@@ -17,21 +17,31 @@ npm install --no-audit --no-fund "$tarball" >/dev/null 2>&1
 cat > check.mjs <<'EOF'
 import assert from 'node:assert/strict'
 import hyperaxe, { div, getFactory, varTag } from 'hyperaxe'
+import { createFactory } from 'hyperaxe/factory'
+import { createFactory as createFactoryAlias } from 'hyperaxe/factory.js'
 
 assert.equal(typeof hyperaxe, 'function')
 assert.equal(typeof getFactory, 'function')
 assert.equal(typeof varTag, 'function')
 assert.equal(div({ class: 'x' }, 'hi').outerHTML, '<div class="x">hi</div>')
+
+// factory subpath works with a custom createElement implementation
+assert.equal(createFactory, createFactoryAlias)
+const fake = createFactory((tag) => ({ tagName: tag }))
+assert.equal(fake.div().tagName, 'div')
 EOF
 node check.mjs
 echo 'runtime import: ok'
 
 cat > check.mts <<'EOF'
 import hyperaxe, { div, type HyperscriptNode } from 'hyperaxe'
+import { createFactory, type CreateElementFunction } from 'hyperaxe/factory'
 
 const el: HyperscriptNode = div('typed')
 const dyn = hyperaxe('custom-tag')('child')
-export { el, dyn }
+const fn: CreateElementFunction = (tag) => div(tag)
+const fake = createFactory(fn)
+export { el, dyn, fake }
 EOF
 "$root/node_modules/.bin/tsc" --noEmit --strict --module nodenext \
   --moduleResolution nodenext --target es2022 check.mts

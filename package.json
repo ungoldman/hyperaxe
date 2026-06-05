@@ -29,6 +29,14 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
+    },
+    "./factory": {
+      "types": "./dist/factory.d.ts",
+      "default": "./dist/factory.js"
+    },
+    "./factory.js": {
+      "types": "./dist/factory.d.ts",
+      "default": "./dist/factory.js"
     }
   },
   "files": [
