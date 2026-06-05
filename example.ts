@@ -1,4 +1,4 @@
-import { body, button, h1 } from './src/hyperaxe.js'
+import { body, button, h1 } from './src/index.js'
 
 const state = { count: 0 }
 
