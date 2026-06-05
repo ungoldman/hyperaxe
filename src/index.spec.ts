@@ -1,8 +1,8 @@
 import { test, describe } from 'node:test'
 import { strict as assert } from 'node:assert'
-import hyperaxe, { getFactory, varTag } from '../src/index'
-import * as namedExports from '../src/index'
-import type { CreateElementFunction } from '../src/factory'
+import hyperaxe, { getFactory, varTag } from './index.js'
+import * as namedExports from './index.js'
+import type { CreateElementFunction } from './factory.js'
 import h from 'hyperscript'
 import tags from 'html-tags'
 
@@ -15,33 +15,21 @@ describe('Hyperaxe Factory', () => {
 
     assert.equal(typeof h, 'object', 'tag function produces object')
     assert.equal(h.nodeName, 'p', 'tag object has correct nodeName')
-    assert.equal(
-      (h.childNodes[0] as any).value,
-      'hello',
-      'tag object has text node'
-    )
+    assert.equal(h.childNodes[0].value, 'hello', 'tag object has text node')
   })
 
   test('all tags exist', () => {
     tags.forEach((tag) => {
-      assert.equal(
-        typeof (hyperaxe as any)[tag],
-        'function',
-        `${tag} method exists`
-      )
+      assert.equal(typeof hyperaxe[tag], 'function', `${tag} method exists`)
     })
   })
 
   test('complex nested arrays', () => {
-    const h = (hyperaxe as any).div(
+    const h = hyperaxe.div(
       { id: 'kidz' },
       'I ',
-      [
-        'am ',
-        ['a ', [(hyperaxe as any).em('very'), ' ', ['nested ', 'bunch ']]],
-        'of '
-      ],
-      (hyperaxe as any).strong('kids'),
+      ['am ', ['a ', [hyperaxe.em('very'), ' ', ['nested ', 'bunch ']]], 'of '],
+      hyperaxe.strong('kids'),
       '.'
     )
     assert.equal(
@@ -54,7 +42,7 @@ describe('Hyperaxe Factory', () => {
 
 describe('HTML Tag Examples', () => {
   test('basic HTML tags', () => {
-    const { a, img, video } = hyperaxe as any
+    const { a, img, video } = hyperaxe
 
     assert.equal(a({ href: '#' }, 'click').outerHTML, '<a href="#">click</a>')
     assert.equal(
@@ -89,7 +77,7 @@ describe('HTML Tag Examples', () => {
       )
 
     assert.equal(
-      (hyperaxe as any).body(
+      hyperaxe.body(
         siteNav(
           { href: '#apps', text: 'apps' },
           { href: '#games', text: 'games' }
@@ -132,7 +120,7 @@ describe('Named Exports', () => {
     tags.forEach((tag) => {
       const name = tag === 'var' ? 'varTag' : tag
       assert.equal(
-        typeof (namedExports as any)[name],
+        typeof (namedExports as Record<string, unknown>)[name],
         'function',
         `${tag} is exported as ${name}`
       )
