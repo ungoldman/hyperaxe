@@ -65,6 +65,7 @@
     "prerelease": "git fetch --tags && npm test",
     "release": "npm version patch",
     "test": "node --test --import=tsx src/**/*.spec.ts",
+    "test:pack": "bash scripts/test-pack.sh",
     "test:watch": "node --test --watch --import=tsx src/**/*.spec.ts"
   },
   "type": "module",
