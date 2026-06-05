@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/ungoldman/hyperaxe/compare/v3.0.0...v3.0.1) (2026-06-04)
+
+### Bug Fixes
+
+- fix broken npm package: `main` and `types` now point at files that exist ([#32](https://github.com/ungoldman/hyperaxe/issues/32))
+- emit type declarations, which 3.0.0 advertised but did not ship
+- sync named exports with html-tags: added `selectedcontent`, removed `menuitem`, `param`, `rb`, and `rtc` (the removed tags were `undefined` since 3.0.0)
+- restore the factory subpath import as `hyperaxe/factory` (`hyperaxe/factory.js` also works)
+- fix release scripts: no more duplicate publish, version commits now push with their tags
+
+### Misc
+
+- add `exports` and `files` fields to package.json
+- validate the published artifact with publint and a packaged-import smoke test
+- gate CI and releases on one full check suite (lint, typecheck, tests, publint, pack test)
+- commit package-lock.json and add a weekly fresh-resolution CI job
+- bump eslint to 10 and typescript to 6 ([#40](https://github.com/ungoldman/hyperaxe/pull/40), [#42](https://github.com/ungoldman/hyperaxe/pull/42))
+- remove all explicit `any` types and make `no-explicit-any` an error
+- consolidate package scripts and remove the broken example
+- readme: document `varTag`, replace the dated example, drop dependency listings
+
 ## [3.0.0](https://github.com/ungoldman/hyperaxe/compare/v2.0.1...v3.0.0) (2025-10-31)
 
 ### Breaking Changes
