@@ -1,6 +1,7 @@
 import { test, describe } from 'node:test'
 import { strict as assert } from 'node:assert'
-import hyperaxe, { getFactory } from '../src/index'
+import hyperaxe, { getFactory, varTag } from '../src/index'
+import * as namedExports from '../src/index'
 import type { CreateElementFunction } from '../src/factory'
 import h from 'hyperscript'
 import tags from 'html-tags'
@@ -121,6 +122,40 @@ describe('HTML Tag Examples', () => {
       hyperaxe('.arrays')(kids).outerHTML,
       '<div class="arrays"><p>Once upon a time,</p><p>there was a variadic function,</p><p>that also accepted arrays.</p></div>'
     )
+  })
+})
+
+describe('Named Exports', () => {
+  // The export list in index.ts is hand-maintained, so guard it
+  // against drifting from html-tags in both directions.
+  test('every html-tags entry has a named export', () => {
+    tags.forEach((tag) => {
+      const name = tag === 'var' ? 'varTag' : tag
+      assert.equal(
+        typeof (namedExports as any)[name],
+        'function',
+        `${tag} is exported as ${name}`
+      )
+    })
+  })
+
+  test('no stale tag exports', () => {
+    const currentTags = new Set<string>(tags)
+    const nonTagExports = new Set([
+      'default',
+      'createFactory',
+      'getFactory',
+      'varTag'
+    ])
+
+    Object.keys(namedExports).forEach((name) => {
+      if (nonTagExports.has(name)) return
+      assert.ok(currentTags.has(name), `${name} is a current html-tags entry`)
+    })
+  })
+
+  test('varTag renders a var element', () => {
+    assert.equal(varTag('x').outerHTML, '<var>x</var>')
   })
 })
 
