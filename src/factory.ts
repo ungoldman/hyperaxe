@@ -15,10 +15,11 @@ export interface HyperscriptNode {
   removeAttribute(name: string): void
   querySelector(selector: string): HyperscriptNode | null
   querySelectorAll(selector: string): HyperscriptNode[]
+  value?: string
 }
 
 export interface HyperscriptProperties {
-  [key: string]: any
+  [key: string]: unknown
   id?: string
   className?: string
   class?: string
@@ -62,7 +63,7 @@ export interface HyperaxeFactory {
 }
 
 export interface CreateElementFunction {
-  (tag: string, ...args: any[]): HyperscriptNode
+  (tag: string, ...args: unknown[]): HyperscriptNode
 }
 
 let instances: Map<CreateElementFunction, HyperaxeFactory> | undefined
@@ -77,7 +78,7 @@ let instances: Map<CreateElementFunction, HyperaxeFactory> | undefined
  */
 function createFactory(fn: CreateElementFunction): HyperaxeFactory {
   function factory(tag: string): TagFunction {
-    return function (...args: any[]): HyperscriptNode {
+    return function (...args: unknown[]): HyperscriptNode {
       const props = args[0]
       return isObject(props)
         ? fn(tag, props, ...sliceKids(args, 1))
@@ -85,13 +86,15 @@ function createFactory(fn: CreateElementFunction): HyperaxeFactory {
     }
   }
 
+  const hyperaxe = factory as HyperaxeFactory
+
   // Dynamically attach all HTML tag methods to the factory
   // This is the clean, programmatic part - no manual updates needed here
   tags.forEach(function (tag: string) {
-    ;(factory as any)[tag] = factory(tag)
+    hyperaxe[tag] = factory(tag)
   })
 
-  return factory as HyperaxeFactory
+  return hyperaxe
 }
 
 /**
@@ -122,12 +125,12 @@ function getFactory(fn: CreateElementFunction): HyperaxeFactory {
  * @param  {number} num - optional integer for Array.slice
  * @return {array} - array of arguments
  */
-function sliceKids(args: any[], num?: number): any[] {
+function sliceKids(args: unknown[], num?: number): unknown[] {
   const arr = Array.prototype.slice.call(args, num)
   return arr
 }
 
-function isObject(val: any): val is Record<string, any> {
+function isObject(val: unknown): val is Record<string, unknown> {
   return val != null && typeof val === 'object' && Array.isArray(val) === false
 }
 
