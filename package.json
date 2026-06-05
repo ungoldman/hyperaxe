@@ -60,7 +60,7 @@
     "url": "git+https://github.com/ungoldman/hyperaxe.git"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "clean": "rm -rf dist",
     "example": "tsx example.ts",
     "format": "prettier --write 'src/**/*.ts'",
