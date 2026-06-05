@@ -8,6 +8,7 @@
     "allowJs": true,
     "outDir": "dist",
     "rootDir": "src",
+    "declaration": true,
     "strict": true,
     "esModuleInterop": true,
     "types": ["node"],
