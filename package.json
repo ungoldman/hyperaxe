@@ -60,16 +60,11 @@
     "url": "git+https://github.com/ungoldman/hyperaxe.git"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "clean": "rm -rf dist",
-    "example": "tsx example.ts",
-    "format": "prettier --write 'src/**/*.ts'",
-    "format:check": "prettier --check 'src/**/*.ts'",
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "lint:types": "tsc --noEmit",
     "postrelease": "git push --follow-tags && npm publish",
-    "prebuild": "npm run clean",
     "prepare": "npm run build",
     "prerelease": "git fetch --tags && npm test",
     "release": "npm version patch",
