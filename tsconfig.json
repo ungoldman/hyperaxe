@@ -9,6 +9,7 @@
     "outDir": "dist",
     "rootDir": "src",
     "declaration": true,
+    "noEmit": true,
     "strict": true,
     "esModuleInterop": true,
     "types": ["node"],
@@ -21,6 +22,5 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["src/**/*.spec.ts"]
+  "include": ["src/**/*"]
 }
