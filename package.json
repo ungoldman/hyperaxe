@@ -59,11 +59,11 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "lint:types": "tsc --noEmit",
-    "postrelease": "git push --tags && npm publish",
+    "postrelease": "git push --follow-tags && npm publish",
     "prebuild": "npm run clean",
     "prepare": "npm run build",
     "prerelease": "git fetch --tags && npm test",
-    "release": "npm version patch && git push --tags && npm publish",
+    "release": "npm version patch",
     "test": "node --test --import=tsx src/**/*.spec.ts",
     "test:watch": "node --test --watch --import=tsx src/**/*.spec.ts"
   },
