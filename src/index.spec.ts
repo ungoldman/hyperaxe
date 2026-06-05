@@ -1,6 +1,6 @@
 import { test, describe } from 'node:test'
 import { strict as assert } from 'node:assert'
-import hyperaxe, { getFactory } from '../src/hyperaxe'
+import hyperaxe, { getFactory } from '../src/index'
 import type { CreateElementFunction } from '../src/factory'
 import h from 'hyperscript'
 import tags from 'html-tags'
