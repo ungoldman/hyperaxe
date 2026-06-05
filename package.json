@@ -25,6 +25,17 @@
   "engines": {
     "node": ">=22"
   },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "!src/**/*.spec.ts"
+  ],
   "homepage": "https://github.com/ungoldman/hyperaxe#readme",
   "keywords": [
     "dom",
