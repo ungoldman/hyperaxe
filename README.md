@@ -95,37 +95,30 @@ body(
 
 ## Example
 
-Here's a counter increment example using [`nanochoo`](https://github.com/heyitsmeuralex/nanochoo):
+Here's a counter increment example, no dependencies required:
 
 ```js
 import { body, button, h1 } from 'hyperaxe'
-import nano from 'nanochoo'
 
-const app = nano()
+let count = 0
 
-app.use(store)
-app.view(view)
-app.mount('body')
-
-function view (state, emit) {
+function view () {
   return body(
-    h1(`count is ${state.count}`),
+    h1(`count is ${count}`),
     button({ onclick }, 'Increment')
   )
-
-  function onclick () {
-    emit('increment', 1)
-  }
 }
 
-function store (state, emitter) {
-  state.count = 0
-
-  emitter.on('increment', function (count) {
-    state.count += count
-    emitter.emit('render')
-  })
+function onclick () {
+  count++
+  render()
 }
+
+function render () {
+  document.body.replaceWith(view())
+}
+
+render()
 ```
 
 ## API
@@ -183,6 +176,15 @@ import { p } from 'hyperaxe'
 p('this is convenient')
 ```
 
+The one exception is `var`, a reserved word in JavaScript, which is exported as `varTag`.
+
+```js
+import { varTag } from 'hyperaxe'
+
+varTag('x')
+// <var>x</var>
+```
+
 You can pass raw HTML by setting the `innerHTML` property of an element.
 
 ```javascript
@@ -197,7 +199,7 @@ Creates a `hyperaxe` element factory for a given hyperscript implementation (`h`
 
 Available as a named export: `import { createFactory } from 'hyperaxe'`
 
-If you use another implementation than `hyperscript` proper, you can exclude that dependency by using `import { createFactory } from 'hyperaxe/factory.js'`. For the time being, no other implementations are tested though, so wield at your own peril!
+If you use another implementation than `hyperscript` proper, you can exclude that dependency by using `import { createFactory } from 'hyperaxe/factory'`. For the time being, no other implementations are tested though, so wield at your own peril!
 
 ### `getFactory(h)`
 
@@ -210,17 +212,6 @@ Available as a named export: `import { getFactory } from 'hyperaxe'`
 - Summons DOM nodes.
 - +1 vs. virtual DOM nodes.
 - Grants [Haste](http://engl393-dnd5th.wikia.com/wiki/Haste).
-
-## Dependencies
-
-- [html-tags](https://ghub.io/html-tags): List of standard HTML tags.
-- [hyperscript](https://ghub.io/hyperscript): Create HyperText with JavaScript, on client or server.
-
-## Dev Dependencies
-
-- [standard](https://ghub.io/standard): JavaScript Standard Style.
-- [standard-version](https://ghub.io/standard-version): Replacement for `npm version` with automatic CHANGELOG generation.
-- [tape](https://ghub.io/tape): tap-producing test harness for node and browsers.
 
 ## See Also
 
