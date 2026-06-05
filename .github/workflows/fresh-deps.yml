@@ -1,0 +1,26 @@
+name: fresh deps
+
+# Tests fresh dependency resolution (ignoring the lockfile) so range
+# breakage surfaces here on a schedule instead of inside unrelated PRs.
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [22, 24]
+
+    steps:
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
+      with:
+        node-version: ${{ matrix.node }}
+    - run: rm package-lock.json
+    - run: npm i
+    - run: npm run check
