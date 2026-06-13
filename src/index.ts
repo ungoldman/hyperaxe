@@ -1,10 +1,5 @@
-import {
-  createFactory,
-  getFactory,
-  type HyperaxeFactory,
-  type TagFunction
-} from './factory.js'
 import h from 'hyperscript'
+import { createFactory, getFactory, type HyperaxeFactory, type TagFunction } from './factory.js'
 
 // Create the main factory instance
 const hyperaxe: HyperaxeFactory = createFactory(h)
@@ -12,18 +7,17 @@ const hyperaxe: HyperaxeFactory = createFactory(h)
 // Export the factory as default
 export default hyperaxe
 
-// Export factory functions
-export { createFactory, getFactory }
-
 // Export types for consumers
 export type {
+  CreateElementFunction,
   HyperaxeFactory,
-  TagFunction,
+  HyperscriptChild,
   HyperscriptNode,
   HyperscriptProperties,
-  HyperscriptChild,
-  CreateElementFunction
+  TagFunction
 } from './factory.js'
+// Export factory functions
+export { createFactory, getFactory }
 
 // Export every HTML tag as a named export,
 // as we can't do dynamic named exports in ESM.

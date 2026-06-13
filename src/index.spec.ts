@@ -1,10 +1,10 @@
-import { test, describe } from 'node:test'
 import { strict as assert } from 'node:assert'
-import hyperaxe, { getFactory, varTag } from './index.js'
-import * as namedExports from './index.js'
-import type { CreateElementFunction } from './factory.js'
-import h from 'hyperscript'
+import { describe, test } from 'node:test'
 import tags from 'html-tags'
+import h from 'hyperscript'
+import type { CreateElementFunction } from './factory.js'
+import * as namedExports from './index.js'
+import hyperaxe, { getFactory, varTag } from './index.js'
 
 describe('Hyperaxe Factory', () => {
   test('factory function signature', () => {
@@ -64,25 +64,16 @@ describe('HTML Tag Examples', () => {
   test('css shorthand', () => {
     const horse = hyperaxe('.horse.with-hands')
 
-    assert.equal(
-      horse('neigh').outerHTML,
-      '<div class="horse with-hands">neigh</div>'
-    )
+    assert.equal(horse('neigh').outerHTML, '<div class="horse with-hands">neigh</div>')
   })
 
   test('custom components', () => {
     const siteNav = (...links: Array<{ href: string; text: string }>) =>
-      hyperaxe('nav.site')(
-        links.map((link) => hyperaxe('a.link')({ href: link.href }, link.text))
-      )
+      hyperaxe('nav.site')(links.map((link) => hyperaxe('a.link')({ href: link.href }, link.text)))
 
     assert.equal(
-      hyperaxe.body(
-        siteNav(
-          { href: '#apps', text: 'apps' },
-          { href: '#games', text: 'games' }
-        )
-      ).outerHTML,
+      hyperaxe.body(siteNav({ href: '#apps', text: 'apps' }, { href: '#games', text: 'games' }))
+        .outerHTML,
       '<body><nav class="site"><a class="link" href="#apps">apps</a><a class="link" href="#games">games</a></nav></body>'
     )
   })
@@ -129,12 +120,7 @@ describe('Named Exports', () => {
 
   test('no stale tag exports', () => {
     const currentTags = new Set<string>(tags)
-    const nonTagExports = new Set([
-      'default',
-      'createFactory',
-      'getFactory',
-      'varTag'
-    ])
+    const nonTagExports = new Set(['default', 'createFactory', 'getFactory', 'varTag'])
 
     Object.keys(namedExports).forEach((name) => {
       if (nonTagExports.has(name)) return
