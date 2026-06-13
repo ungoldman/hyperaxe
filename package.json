@@ -11,17 +11,10 @@
     "hyperscript": "^2.0.2"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
+    "@biomejs/biome": "^2.5.0",
     "@types/node": "^25.0.3",
-    "@typescript-eslint/eslint-plugin": "^8.46.2",
-    "@typescript-eslint/parser": "^8.46.2",
-    "eslint": "^10.4.1",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.4",
-    "prettier": "^3.6.2",
     "tsx": "^4.6.0",
-    "typescript": "^6.0.3",
-    "typescript-eslint": "^8.46.2"
+    "typescript": "^6.0.3"
   },
   "engines": {
     "node": ">=22"
@@ -64,17 +57,17 @@
   },
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
-    "check": "npm run lint && npm run lint:types && npm test && npx publint && npm run test:pack",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
-    "lint:types": "tsc --noEmit",
+    "check": "npm run lint && npm run typecheck && npm test && npx publint && npm run test:pack",
+    "format": "biome check --write .",
+    "lint": "biome check .",
     "postrelease": "git push --follow-tags && npm publish",
     "prepare": "npm run build",
     "prerelease": "git fetch --tags && npm run check",
     "release": "npm version patch",
     "test": "node --test --import=tsx src/**/*.spec.ts",
     "test:pack": "bash scripts/test-pack.sh",
-    "test:watch": "node --test --watch --import=tsx src/**/*.spec.ts"
+    "test:watch": "node --test --watch --import=tsx src/**/*.spec.ts",
+    "typecheck": "tsc --noEmit"
   },
   "type": "module",
   "types": "dist/index.d.ts"

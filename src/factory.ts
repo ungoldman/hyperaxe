@@ -40,18 +40,10 @@ export interface HyperscriptProperties {
   onblur?: (event?: Event) => void
 }
 
-export type HyperscriptChild =
-  | string
-  | number
-  | boolean
-  | HyperscriptNode
-  | HyperscriptChild[]
+export type HyperscriptChild = string | number | boolean | HyperscriptNode | HyperscriptChild[]
 
 export interface TagFunction {
-  (
-    properties?: HyperscriptProperties,
-    ...children: HyperscriptChild[]
-  ): HyperscriptNode
+  (properties?: HyperscriptProperties, ...children: HyperscriptChild[]): HyperscriptNode
   (...children: HyperscriptChild[]): HyperscriptNode
 }
 
@@ -62,9 +54,7 @@ export interface HyperaxeFactory {
   [key: string]: TagFunction
 }
 
-export interface CreateElementFunction {
-  (tag: string, ...args: unknown[]): HyperscriptNode
-}
+export type CreateElementFunction = (tag: string, ...args: unknown[]) => HyperscriptNode
 
 let instances: Map<CreateElementFunction, HyperaxeFactory> | undefined
 
@@ -78,11 +68,9 @@ let instances: Map<CreateElementFunction, HyperaxeFactory> | undefined
  */
 function createFactory(fn: CreateElementFunction): HyperaxeFactory {
   function factory(tag: string): TagFunction {
-    return function (...args: unknown[]): HyperscriptNode {
+    return (...args: unknown[]): HyperscriptNode => {
       const props = args[0]
-      return isObject(props)
-        ? fn(tag, props, ...sliceKids(args, 1))
-        : fn(tag, ...sliceKids(args))
+      return isObject(props) ? fn(tag, props, ...sliceKids(args, 1)) : fn(tag, ...sliceKids(args))
     }
   }
 
@@ -90,7 +78,7 @@ function createFactory(fn: CreateElementFunction): HyperaxeFactory {
 
   // Dynamically attach all HTML tag methods to the factory
   // This is the clean, programmatic part - no manual updates needed here
-  tags.forEach(function (tag: string) {
+  tags.forEach((tag: string) => {
     hyperaxe[tag] = factory(tag)
   })
 
