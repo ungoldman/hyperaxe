@@ -6,9 +6,7 @@
     "allowSyntheticDefaultImports": true,
     "lib": ["es2022", "dom"],
     "allowJs": true,
-    "outDir": "dist",
-    "rootDir": "src",
-    "declaration": true,
+    "rootDir": ".",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -18,7 +16,9 @@
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "types": ["node"]
   },
-  "include": ["src"]
+  "include": ["src", "test"]
 }

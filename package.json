@@ -54,7 +54,7 @@
     "url": "git+https://github.com/ungoldman/hyperaxe.git"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "coverage": "node --test --experimental-test-coverage --import=tsx --test-coverage-exclude='test/**' --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 test/*.test.ts",
     "format": "biome check --write .",
     "lint": "biome check .",
@@ -63,7 +63,7 @@
     "test": "npm run lint && npm run typecheck && npm run build && node --test --import=tsx test/*.test.ts",
     "test:pack": "bash scripts/test-pack.sh",
     "test:watch": "node --test --watch --import=tsx test/*.test.ts",
-    "typecheck": "tsc -p tsconfig.test.json"
+    "typecheck": "tsc"
   },
   "sideEffects": false,
   "type": "module",
