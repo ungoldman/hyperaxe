@@ -17,7 +17,7 @@
     "typescript": "^6.0.3"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=22.12.0"
   },
   "exports": {
     ".": {
@@ -34,9 +34,7 @@
     }
   },
   "files": [
-    "dist",
-    "src",
-    "!src/**/*.spec.ts"
+    "dist"
   ],
   "homepage": "https://github.com/ungoldman/hyperaxe#readme",
   "keywords": [
