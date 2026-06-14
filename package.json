@@ -62,7 +62,7 @@
     "lint": "biome check .",
     "postrelease": "git push --follow-tags && npm publish",
     "prebuild": "rm -rf dist",
-    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
     "prerelease": "git fetch --tags && npm test && npm run test:pack",
     "release": "npm version patch",
     "test": "npm run lint && npm run typecheck && npm run build && node --test --import=tsx test/*.test.ts",
