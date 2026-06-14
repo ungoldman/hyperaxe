@@ -34,9 +34,7 @@
     }
   },
   "files": [
-    "dist",
-    "src",
-    "!src/**/*.spec.ts"
+    "dist"
   ],
   "homepage": "https://github.com/ungoldman/hyperaxe#readme",
   "keywords": [
