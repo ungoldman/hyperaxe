@@ -70,6 +70,7 @@
     "test:watch": "node --test --watch --import=tsx test/*.test.ts",
     "typecheck": "tsc -p tsconfig.test.json"
   },
+  "sideEffects": false,
   "type": "module",
   "types": "dist/index.d.ts"
 }
