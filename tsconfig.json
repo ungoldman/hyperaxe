@@ -9,10 +9,8 @@
     "outDir": "dist",
     "rootDir": "src",
     "declaration": true,
-    "noEmit": true,
     "strict": true,
     "esModuleInterop": true,
-    "types": ["node"],
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
@@ -22,5 +20,5 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": ["src/**/*"]
+  "include": ["src"]
 }

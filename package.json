@@ -56,18 +56,19 @@
     "url": "git+https://github.com/ungoldman/hyperaxe.git"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "build": "tsc",
     "check": "npm run lint && npm run typecheck && npm test && npx publint && npm run test:pack",
     "format": "biome check --write .",
     "lint": "biome check .",
     "postrelease": "git push --follow-tags && npm publish",
+    "prebuild": "rm -rf dist",
     "prepare": "npm run build",
     "prerelease": "git fetch --tags && npm run check",
     "release": "npm version patch",
     "test": "node --test --import=tsx test/*.test.ts",
     "test:pack": "bash scripts/test-pack.sh",
     "test:watch": "node --test --watch --import=tsx test/*.test.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc -p tsconfig.test.json"
   },
   "type": "module",
   "types": "dist/index.d.ts"
