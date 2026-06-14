@@ -58,6 +58,7 @@
   "scripts": {
     "build": "tsc",
     "check": "npm run lint && npm run typecheck && npm test && npx publint && npm run test:pack",
+    "coverage": "node --test --experimental-test-coverage --import=tsx --test-coverage-exclude='test/**' --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 test/*.test.ts",
     "format": "biome check --write .",
     "lint": "biome check .",
     "postrelease": "git push --follow-tags && npm publish",
