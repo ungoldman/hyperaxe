@@ -8,6 +8,9 @@ tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
 
 cd "$root"
+# Build first, the way `prepublishOnly` does at publish time, so the tarball
+# carries a fresh dist (npm pack does not run prepublishOnly).
+npm run build >/dev/null 2>&1
 tarball="$tmp/$(npm pack --pack-destination "$tmp" 2>/dev/null | tail -1)"
 
 cd "$tmp"
