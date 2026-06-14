@@ -23,4 +23,6 @@ jobs:
         node-version: ${{ matrix.node }}
     - run: rm package-lock.json
     - run: npm i
-    - run: npm run check
+    - run: npm test
+    - run: npm run coverage
+    - run: npm run test:pack
