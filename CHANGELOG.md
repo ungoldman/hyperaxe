@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/ungoldman/hyperaxe/compare/v3.0.1...v3.0.2) (2026-06-14)
+
+
+### Bug Fixes
+
+* ship only dist and raise the node floor to 22.12 ([#56](https://github.com/ungoldman/hyperaxe/issues/56)) ([4904cc6](https://github.com/ungoldman/hyperaxe/commit/4904cc6ce66a5dafb4d1b384bc4c6a393371fba1))
+
 ## [3.0.1](https://github.com/ungoldman/hyperaxe/compare/v3.0.0...v3.0.1) (2026-06-04)
 
 ### Bug Fixes
