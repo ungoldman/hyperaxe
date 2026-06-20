@@ -6,12 +6,15 @@ set -euo pipefail
 root="$(cd "$(dirname "$0")/.." && pwd)"
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
+export npm_config_cache="$tmp/npm-cache"
 
 cd "$root"
 # Build first, the way `prepublishOnly` does at publish time, so the tarball
 # carries a fresh dist (npm pack does not run prepublishOnly).
 npm run build >/dev/null 2>&1
-tarball="$tmp/$(npm pack --pack-destination "$tmp" 2>/dev/null | tail -1)"
+pack_output="$(npm pack --pack-destination "$tmp" --json)"
+tarball_name="$(node -e "console.log(JSON.parse(process.argv[1])[0].filename)" "$pack_output")"
+tarball="$tmp/$tarball_name"
 
 cd "$tmp"
 npm init -y >/dev/null 2>&1
