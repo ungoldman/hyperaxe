@@ -13,7 +13,6 @@
   "devDependencies": {
     "@biomejs/biome": "^2.5.0",
     "@types/node": "^25.0.3",
-    "tsx": "^4.6.0",
     "typescript": "^6.0.3"
   },
   "engines": {
@@ -55,14 +54,14 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "coverage": "node --test --experimental-test-coverage --import=tsx --test-coverage-exclude='test/**' --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 test/*.test.ts",
+    "coverage": "node --test --experimental-test-coverage --test-coverage-exclude='test/**' --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 test/*.test.ts",
     "format": "biome check --write .",
     "lint": "biome check .",
     "prebuild": "rm -rf dist",
     "prepublishOnly": "npm run build",
-    "test": "npm run lint && npm run typecheck && npm run build && node --test --import=tsx test/*.test.ts",
+    "test": "npm run lint && npm run typecheck && npm run build && node --test test/*.test.ts",
     "test:pack": "bash scripts/test-pack.sh",
-    "test:watch": "node --test --watch --import=tsx test/*.test.ts",
+    "test:watch": "node --test --watch test/*.test.ts",
     "typecheck": "tsc"
   },
   "sideEffects": false,
