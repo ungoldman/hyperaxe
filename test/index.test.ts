@@ -2,9 +2,9 @@ import { strict as assert } from 'node:assert'
 import { describe, test } from 'node:test'
 import tags from 'html-tags'
 import h from 'hyperscript'
-import type { CreateElementFunction } from '../src/factory.js'
-import * as namedExports from '../src/index.js'
-import hyperaxe, { getFactory, varTag } from '../src/index.js'
+import type { CreateElementFunction } from '../src/factory.ts'
+import * as namedExports from '../src/index.ts'
+import hyperaxe, { getFactory, varTag } from '../src/index.ts'
 
 describe('Hyperaxe Factory', () => {
   test('factory function signature', () => {

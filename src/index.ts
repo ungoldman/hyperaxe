@@ -1,5 +1,5 @@
 import h from 'hyperscript'
-import { createFactory, getFactory, type HyperaxeFactory, type TagFunction } from './factory.js'
+import { createFactory, getFactory, type HyperaxeFactory, type TagFunction } from './factory.ts'
 
 // Create the main factory instance
 const hyperaxe: HyperaxeFactory = createFactory(h)
@@ -15,7 +15,7 @@ export type {
   HyperscriptNode,
   HyperscriptProperties,
   TagFunction
-} from './factory.js'
+} from './factory.ts'
 // Export factory functions
 export { createFactory, getFactory }
 
